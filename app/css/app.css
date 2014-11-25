@@ -1,0 +1,26 @@
+.content {
+	
+	border: 1px solid green;
+	background-color: white;
+	margin: 10px;
+	border-radius: 20px;
+}
+label.ui-input-text,label.ui-select {
+	line-height: 2.4;
+}
+.text-align-center{
+	text-align: center;
+}
+.header label{
+	color: green;
+	font-size: 18px;
+}
+
+.logoCls{
+	background-image: url('../images/LicpoliZy_Logo.png');
+	background-repeat: no-repeat;
+	height: 80px;
+	background-color: transparent;
+	border: 0px;
+	background-position: 50% 50%;
+}
