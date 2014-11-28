@@ -1,6 +1,5 @@
-var policyDetail = {
+var appData = {
     "licPolicy": {
-        "--select--" : "select",
         "Amulya Jeevan -2" : {
              "d1" : "LIC Amulya Jeevan (Table - 823) is a term life insurance plan which provides financial protection to your family in case of unfortunate demise. Its similar to Anmol Jeevan - 2 with a minimum sum assured of 25 Lakhs. Sum assured lesser than 25 Lakhs can be taken in Anmol Jeevan. ",
              "d2" : "You get good Sum Assured at very low priced premium. In the event of policyholder’s demise, the cover taken is paid to the nominee. There is no maturity benefit in LIC Amulya Jeevan- 2 as it’s a pure term life insurance plan. ",
