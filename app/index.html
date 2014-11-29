@@ -11,13 +11,17 @@
   <script src="js/underscore1.7.0.js"></script>
   <script src="js/licPolicyDetails.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
+
+  <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
+  <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>
+  <script type="text/javascript" src="  http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.datebox.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" />
 </head> 
 <!--Lic Polizy.com-->
 <body> 
   <div data-role="page" id="maturityCalculatorPage">
     <div data-role="header" class="logoCls">
 			<div><a href="#moreOptionsPanel" class="ui-btn ui-btn-right ui-icon-bars ui-btn-icon-right"></a></div>
-      <!-- <h3>hi how are you</h3> -->
     </div>
     
     <div data-role="main" class="ui-content content">
@@ -64,13 +68,14 @@
         
         <div data-role="fieldcontain">
           <label for="name">DOB</label>
-          <!-- <input type="text" data-role="date" placeholder="Date of Birth" data-inline="true"> -->
-          <input type="text" id="datepicker" class="hasDatepicker">
+          <input type="date" id="date_val" data-role="datebox" data-options='{"mode": "calbox", "useNewStyle":true,"useFocus": true}'>
         </div>
-        
-        <button type="submit" class="ui-btn-inline-block" value="Get Premium and Maturity" ></button>
-        
-        <label><input type="checkbox" name="checkbox-tc" />  I agree to your <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a> </label>
+
+        <div data-role="main" class="ui-content">
+          <button class="ui-btn ui-corner-all">Get Premium and Maturity</button>
+        </div>
+
+        <label><input type="checkbox" name="checkbox-tc" />  I agree to your <a href="#termsAndCondition">Terms & Conditions</a> and <a href="#termsAndCondiiton">Privacy Policy</a> </label>
       </form>
     </div>
     
@@ -79,10 +84,57 @@
     </div>
   </div>
   
+  <!-- List Overlay  -->
   <div data-role="panel" id="moreOptionsPanel" data-display="overlay" data-position="right">
 			<ul data-role="listview" data-icon="false" id="moreOptionsList" class="ui-listview">
 			</ul>
 	</div>
+
+
+ <!-- Terms And Condtion Page -->
+  <div data-role="page" id="termsAndCondition">
+    <div data-role="header" class="logoCls">
+        <a href="#maturityCalculatorPage" class="home-btn-icon ui-btn ui-icon-home ui-btn-icon-left"></a>
+    </div>
+
+    <div data-role="main" class="ui-content">
+
+      <h3>Terms & Conditions</h3>
+      <p>
+        This website, www.licpolizy.com is owned and operated by ESKRO Services Private Limited. By ‘You’ we refer to the users of this website. By using this website, you agree to the following terms and conditions so please read them carefully. We reserve the right to change/alter/modify these terms and conditions at any time and we suggest that you periodically visit this page to review the most recent Terms & Conditions. The information and descriptions on the site do not necessarily represent complete descriptions of all terms, conditions and exclusions and the precise cover provided (as applicable) shall be included in the schedule of cover, policy documents and/or conditions of purchase issued to you. If you apply for any product or service detailed on the site, these Conditions of Use should be read in conjunction with any additional terms and conditions relating to that product or service and, in the event of any contradiction between these Conditions of Use and the specific product of service terms and conditions, the latter shall prevail. 
+      </p>
+      <h3>Privacy Policy</h3>
+      <p>
+        <span>
+          By using the website and/or registering yourself at LicpoliZy.com, you authorize us, our affiliates & our associate partners to contact you via email or phone call and offer you our services for the LIC product you have opted for, imparting product knowledge, offer promotional offers running on website & offers offered by the associated third parties, for which reasons, personally identifiable information may be collected as detailed below. And Irrespective of the fact if also you have registered yourself under DND or DNC or NCPR service, you still authorize us to give you a call from LicpoliZy & its associate partners for the above mentioned purposes till 90 days of your registration with us. 
+        </span>
+        <b></b>
+        <span>
+          When you register with us, we will ask you for your Name, Date of Birth, Phone, E-Mail, City. By accepting our Privacy Policy, you authorise us to share these information with the our associates, so that they can reach out to you for selling LIC products. By registration you authorize us to send sms/email alerts to you for your login details and any other service requirements or some advertising messages/emails from us.
+        </span>
+      </p>
+      <h3>Fees and Charges</h3>
+      <p>
+        LicpoliZy offers a FREE service and charges NO FEES OR CHARGES from it’s users. Every payment accepted by LicpoliZy.com, is accepted as premium against your desired insurance policy and collected in an exclusive Client A/c, which is transferred to LIC in full on receipt of your proposal. 
+      </p>  
+      <h3>Limitations of Services</h3>
+      <p>The premium rates mentioned on the website may not be final and binding. In some cases, LIC may intimate the final rates after submission of the given premium and documentation as communicated to you by LicpoliZy and the process of underwriting conducted by the LIC, which may or may not lead to extra charges. Further, the rates mentioned on the website are sourced from LIC official website (www.licindia.in). The rates are subject to change at any time and we take no responsibility of any losses in such cases. The maturity values mentioned in LicpoliZy.com is calculated based on the past Bonus history of LIC and in no way, it means that the maturity values given here are guaranteed by LIC, unless its explicitly mentioned in the policy brochure. LIC reserves the right to recover from the policyholder or proposer, any levies and duties (including service tax), as imposed by the government, either by premium adjustment or other forms, as deemed appropriate. Kindly refer to the proposal for the exact fees and charges. LicpoliZy.com is owned by ESKRO Services Pvt Ltd, whose directors are authorised agents of LIC of India. Premium paid at Licpolizy.com in no way means that the policy has been issued. Issuance of the policy is at the sole discretion of LIC. The policy issuance is subject to the process of underwriting and risk assessment by LIC after submission of payment and complete documentation and medical examination if required. Based on underwriting, LIC may accept or decline an insurance proposal. Any insurance product sold will be solely on terms and conditions of LIC. In case the proposal is declined, or has to be cancelled on the customer’s request, the refund is processed as per our refund policy. 
+      </p>
+      <h3>Returns & Refund Policy</h3>
+      <p>Until your proposal is submitted with LIC, you may, if you are dissatisfied with the services provided by LicpoliZy, send an email to service@licpolizy.com requesting a refund, detailing the reason for the same. 5% of your paid amount will be deducted for transaction charges and the balance amount will be credited back to your Credit Card/Debit Card/Net banking/Bank account, depending upon your mode of payment, within 10 working days of your confirmation. However, if your proposal has been forwarded to LIC, your refund will be processed by LIC, as per their refund policies. In such cases, you will be required to communicate with LIC directly, although we may assist you in the process. 
+      </p>
+      <h3>Disclaimer:</h3>
+      <p>Our Directors are authorised Agents of Life Insurance Corporation(LIC) of India. The LIC Logo and the copy right materials used here are to identify that we sell LIC Products only. This is not an official LIC Website. The information provided in this website is sourced from the LIC official website (www.licindia.in). Though we take sufficient measures for the correctness of the information provided here, visitors are requested to check with LIC for the actual details. LicpoliZy.com is not liable for the correctness of any information provided here. </p>
+      <h3>Log Files</h3>
+      <p>As with most other websites, we collect and use the data contained in log files. The information in the log files include your IP (internet protocol) address, your ISP (internet service provider, such as AOL or Shaw Cable), the browser you used to visit our site (such as Internet Explorer or Firefox or Google Chrome), the time you visited our site and which pages you visited throughout our site.</p>
+    </div>
+
+    <div data-role="footer">
+      <h1>Footer Text</h1>
+    </div>
+  </div>
+
+
 	<script type="text/javascript">
 		loadPolicyMenuDOM();
 	</script>

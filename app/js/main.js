@@ -49,14 +49,20 @@ function loadPolicyMenuDOM() {
 					//$("#"+pageId+"_PageContent").html(pageContent);
 				}
 				
-				html += '<div data-role="page" id="'+policyNames[i]+'">'+
-							'<div data-role="header">'+
-							'<h3>'+policyNames[i]+'</h3>'+
-							'<div><a href="#maturityCalculatorPage" class="ui-btn ui-btn-left ui-icon-close ui-btn-icon-center"></a></div>'+
-							'<div><a href="#moreOptionsPanel" class="ui-btn ui-btn-right ui-icon-bars ui-btn-icon-center"></a></div>'+
-						'</div>'+
-						'<div data-role="main" class="ui-content content" id="'+policyNames[i]+'_PageContent">'+pageContent+
-						'</div>'+
+				html += '<div data-role="page" data-transition="slide" id="'+policyNames[i]+'">'+
+							'<div data-role="header" class="des-logo-cls">'+
+								'<div>'+
+      								'<a href="#maturityCalculatorPage" class="home-btn-icon ui-btn ui-icon-home ui-btn-icon-left"></a>'+
+							    '</div>'+
+								//'<div><a href="#maturityCalculatorPage" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-center"></a></div>'+
+								'<div><a href="#moreOptionsPanel" class="list-btn-Cls ui-btn ui-btn-right ui-icon-bars ui-btn-icon-center"></a></div>'+
+							'</div>'+
+							'<div data-role="main" class="ui-content content" id="'+policyNames[i]+'_PageContent">'+
+								'<div data-role="header">'+
+									'<h3 class="des-h-cls">'+policyNames[i]+'</h3>'+
+								'</div>'+
+								pageContent+
+							'</div>'+
 						'</div>';
 				
 			}
