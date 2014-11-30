@@ -96,11 +96,19 @@ label.ui-input-text,label.ui-select {
 
 }
 
+.ui-field-contain>label, .ui-field-contain .ui-controlgroup-label, .ui-field-contain>.ui-rangeslider>label {
+	width: 25% !important;
+}
+
+.ui-field-contain>label~[class*=ui-], .ui-field-contain .ui-controlgroup-controls {
+	width: 70% !important;
+}
+
 /************************* Description Page CSS ::::::::::: End ***************************/
 
 /************************* List of Lic Polizy:::::   Start ********************************/
 
-@media only screen and (max-width: 28em){
+@media only screen and (max-width: 27.9em){
     
     .ui-field-contain input.ui-input-text, 
     .ui-field-contain textarea.ui-input-text, 
