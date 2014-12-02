@@ -28,7 +28,7 @@ function loadPolicyMenuDOM() {
 		if(policyNames && policyNames.length > 0) {
 			
 			for(var i=0; i<policyNames.length; i++) {
-				policyNamesListDOM += '<li class="ui-li-static ui-body-inherit"><a href="#'+policyNames[i]+'">'+policyNames[i]+'</a></li>';
+				policyNamesListDOM += '<li class="ui-li-static ui-body-inherit"><a href="#'+policyNames[i]+'" data-transition="none">'+policyNames[i]+'</a></li>';
 				
 				if(appData["licPolicy"].hasOwnProperty(policyNames[i])) {
 					var descriptionData = appData["licPolicy"][policyNames[i]];
@@ -52,7 +52,7 @@ function loadPolicyMenuDOM() {
 				html += '<div data-role="page" data-transition="slide" id="'+policyNames[i]+'">'+
 							'<div data-role="header" class="des-logo-cls">'+
 								'<div>'+
-      								'<a href="#maturityCalculatorPage" class="home-btn-icon ui-btn ui-icon-home ui-btn-icon-left"></a>'+
+      								'<a href="#maturityCalculatorPage" data-transition="slide" class="home-btn-icon ui-btn ui-icon-home ui-btn-icon-left"></a>'+
 							    '</div>'+
 								//'<div><a href="#maturityCalculatorPage" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-center"></a></div>'+
 								'<div><a href="#moreOptionsPanel" class="list-btn-Cls ui-btn ui-btn-right ui-icon-bars ui-btn-icon-center"></a></div>'+
