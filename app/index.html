@@ -54,16 +54,14 @@
           </select>
         </div>
         
-        <label><input type="checkbox" name="checkbox-0" /> Include Double Accident Benefit </label>
+        <div data-role="fieldcontain" class="db-acc-benefit-div">
+            <input type="checkbox" class="checkbox-cls" name="checkbox-0" />
+            <label class="db-acc-benefit" for="name"> Include double accident benefit </label>
+        </div>
         
         <div data-role="fieldcontain">
           <label for="name">Name</label>
           <input type="text" name="name" id="name" placeholder="Enter Your Name" value="" />
-        </div>
-        
-        <div data-role="fieldcontain" class="mobilenumberdiv">
-          <label for="name">Mobile</label>
-          <!-- <div class="countrycodedivcls">+91&nbsp;</div> --> <input type="number" name="lifecover" id="lifecover" placeholder="10 Digit Mobile Number" value="" />
         </div>
         
         <div data-role="fieldcontain">
@@ -75,7 +73,12 @@
           <button class="ui-btn ui-corner-all">Get Premium and Maturity</button>
         </div>
 
-        <label><input type="checkbox" name="checkbox-tc" />  I agree to your <a href="#termsAndCondition">Terms & Conditions</a> and <a href="#termsAndCondiiton">Privacy Policy</a> </label>
+        <div class="terms-cond-div">
+          <input type="checkbox" name="checkbox-tc" />
+          <label>  I agree to your <a href="#termsAndCondition">Terms & Conditions</a> and <a href="#termsAndCondiiton">Privacy Policy</a> </label>
+        </div>
+
+        
       </form>
     </div>
     

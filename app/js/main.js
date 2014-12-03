@@ -59,7 +59,7 @@ function loadPolicyMenuDOM() {
 							'</div>'+
 							'<div data-role="main" class="ui-content content" id="'+policyNames[i]+'_PageContent">'+
 								'<div data-role="header">'+
-									'<h3 class="des-h-cls">'+policyNames[i]+'</h3>'+
+									'<h3 class="margin0 des-h-cls">'+policyNames[i]+'</h3>'+
 								'</div>'+
 								pageContent+
 							'</div>'+
