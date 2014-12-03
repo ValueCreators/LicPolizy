@@ -1,3 +1,7 @@
+body, input, select, textarea, button, .ui-btn {
+    font-size: 14px !important;
+}
+
 .content {
 	
 	border: 1px solid green;
@@ -135,11 +139,12 @@ input[type=checkbox]
 }
 
 .ui-field-contain>label, .ui-field-contain .ui-controlgroup-label, .ui-field-contain>.ui-rangeslider>label {
-	width: 25% !important;
+	width: 30% !important;
+	font-size: 14px !important;
 }
 
 .ui-field-contain>label~[class*=ui-], .ui-field-contain .ui-controlgroup-controls {
-	width: 70% !important;
+	width: 65% !important;
 }
 
 /************************* Description Page CSS ::::::::::: End ***************************/
