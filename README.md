@@ -5,7 +5,7 @@ LicPolizy mobile app
 
 steps to run the app
 
-1. install sudo npm gulp gulp-sass gulp-concat browser-sync
+1. sudo npm install gulp gulp-sass gulp-concat browser-sync
 2. gulp
 
 
