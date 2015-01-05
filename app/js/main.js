@@ -13,15 +13,63 @@ $(document).one('pagebeforecreate', function () {
 	$("#moreOptionsList").listview('refresh');
 });*/
 
+function getPoliciesList() {
+
+	console.log("getPoliciesList  --->>>>>>>");
+
+
+
+	var policyListServiceUrl = "http://webservice.licpolizy.com/PolicyService.aspx?Prd=0";
+
+	makeRequest(policyListServiceUrl, getPolicyListSuccess, getPolicyListFailure);
+}
+
+function getPolicyListSuccess(response_obj) {
+
+	console.log('response_obj......',response_obj)
+}
+
+function getPolicyListFailure() {
+
+	alert("Failure");
+}
+
+function makeRequest(url, successCallback, errorCallback) {
+
+	var _this = this;
+	$.ajax({
+
+		url : url,
+		type : 'GET',
+		//dataType : 'json',
+		success : function(response_obj, textStatus, jqXHR) {
+
+			console.log("Request succeeded..");
+
+			successCallback.apply(_this, [response_obj]);
+		},
+
+		error : function(json_data, textStatus, jqXHR) {
+
+			console.log("Request failed..",json_data);
+
+			errorCallback.apply(_this, [json_data]);
+		}
+	});
+}
+
+
 function loadPolicyMenuDOM() {
 	
-	console.log(">>>>>>>>>>>>> loadPolicyMenuDOM");
+	//console.log(">>>>>>>>>>>>> loadPolicyMenuDOM");
+
+	getPoliciesList();
 	
 	if(appData.hasOwnProperty("licPolicy")) {
 		
 		var policyNames = Object.keys(appData["licPolicy"]);
 		
-		console.log("PolicyNames >>>>>>>>> "+policyNames);
+		//console.log("PolicyNames >>>>>>>>> "+policyNames);
 		
 		var policyNamesListDOM = '';
 		
@@ -35,17 +83,17 @@ function loadPolicyMenuDOM() {
 					
 					var objectKeys = Object.keys(descriptionData);
 					var descLength = objectKeys.length;
-					console.log("descLength >> "+descLength);
+					//console.log("descLength >> "+descLength);
 					
 					var pageContent = "";
 					
 					for(var key in objectKeys) {
-						console.log("Key >> "+objectKeys[key]);
-						console.log("Value >> "+descriptionData[objectKeys[key]]);
+						//console.log("Key >> "+objectKeys[key]);
+						//console.log("Value >> "+descriptionData[objectKeys[key]]);
 						pageContent += "<div data-role='fieldcontain' class='ui-field-contain'>"+descriptionData[objectKeys[key]]+"</div>";
 					}
 					
-					console.log("pageContent >> "+pageContent);
+					//console.log("pageContent >> "+pageContent);
 					//$("#"+pageId+"_PageContent").html(pageContent);
 				}
 				
