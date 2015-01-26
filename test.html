@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
+  
+</head> 
+<!--Lic Polizy.com-->
+<body> 
+
+
+
+	<script type="text/javascript">
+		//loadPolicyMenuDOM();
+    makeRequest();
+
+    function makeRequest() {
+
+      var _this = this;
+      $.ajax({
+
+        url : "http://webservice.licpolizy.com/PolicyService.aspx?Prd=0",
+        type : 'GET',
+        //dataType : 'json',
+        success : function(response_obj, textStatus, jqXHR) {
+
+          console.log("Request succeeded..");
+        },
+
+        error : function(json_data, textStatus, jqXHR) {
+
+          console.log("Request failed..",json_data);
+        }
+      });
+    }
+
+
+	</script>
+</body>
+</html>

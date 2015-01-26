@@ -2,6 +2,16 @@ body, input, select, textarea, button, .ui-btn {
     font-size: 14px !important;
 }
 
+.none {
+	display: none;
+}
+
+.ui-checkbox input:disabled {
+	height: 22px;
+	width: 22px;
+	clip: auto;
+}
+
 .content {
 	
 	border: 1px solid green;
@@ -147,6 +157,18 @@ input[type=checkbox]
 	width: 65% !important;
 }
 
+.show-maturity-details {
+	text-align: center;
+	width: 50%;
+	margin: auto;
+	border: 1px solid black;
+	border-radius: 25px;
+	color: #B05839;
+	background-color: #EFF6F7;
+	margin-top: 15px;
+	padding: 15px;
+}
+
 /************************* Description Page CSS ::::::::::: End ***************************/
 
 /************************* List of Lic Polizy:::::   Start ********************************/
@@ -185,5 +207,4 @@ input[type=checkbox]
 	.ui-field-contain {
 		border-bottom: none;
 	}
-
 }
