@@ -148,29 +148,57 @@ function getMaturityData() {
 	} else {
 		doubleAccBenifit = $('.inc-dab')[0].checked ? "Y" : "N";
 	}
+	var errorMessage = validateForm();
+	if (!errorMessage) {
+		$('.error-msg').addClass('none');
+		var getPremiumDataURL = "http://webservice.licpolizy.com/PolicyService.aspx?Premium=<NewDataSet><MainDetl>"+
+								"<DDLPlan>"+plan+"</DDLPlan><DDLTerm>"+term+"</DDLTerm><TxtSumAssured>"+sumAssured+"</TxtSumAssured>"+
+								"<DOB>"+dob+"</DOB><DAB>"+doubleAccBenifit+"</DAB></MainDetl></NewDataSet>";
+		console.log('Request',getPremiumDataURL);
+		$.ajax({
 
-	var getPremiumDataURL = "http://webservice.licpolizy.com/PolicyService.aspx?Premium=<NewDataSet><MainDetl>"+
-							"<DDLPlan>"+plan+"</DDLPlan><DDLTerm>"+term+"</DDLTerm><TxtSumAssured>"+sumAssured+"</TxtSumAssured>"+
-							"<DOB>"+dob+"</DOB><DAB>"+doubleAccBenifit+"</DAB></MainDetl></NewDataSet>";
-	console.log('Request',getPremiumDataURL);
-	$.ajax({
+			url : getPremiumDataURL,
+			type : 'GET',
+			success : function(response_obj, textStatus, jqXHR) {
 
-		url : getPremiumDataURL,
-		type : 'GET',
-		success : function(response_obj, textStatus, jqXHR) {
+				var data = JSON.parse(response_obj)
+				$('.show-maturity-details')[0].innerHTML = "";
+				$('.show-maturity-details').append(data[0].Premium);
+				$('.show-maturity-details').removeClass('none');
+			},
 
-			var data = JSON.parse(response_obj)
-			$('.show-maturity-details')[0].innerHTML = "";
-			$('.show-maturity-details').append(data[0].Premium);
-			$('.show-maturity-details').removeClass('none');
-		},
+			error : function(json_data, textStatus, jqXHR) {
 
-		error : function(json_data, textStatus, jqXHR) {
-
-			console.log("Request failed..",json_data);
-		}
-	});
+				console.log("Request failed..",json_data);
+			}
+		});
+	} else {
+		$('.error-msg').innerHTML = errorMessage;
+		$('.error-msg').removeClass('none');
+	}
 }
+
+function validateForm () {
+
+	var errorMessage = false;
+	var dob = $('#date_val').val();
+	if (!parseInt($('#lifecover').val())) {
+		errorMessage = "Please enter valid sumAssured" ; 
+	} else if (!parseInt( $('#select-plan').val() )) {
+		errorMessage = "Please select plan" ; 
+	} else if (!parseInt( $('#terms-list').val()) ) {
+		errorMessage = "Please select terms" ; 
+	} else if (dob === 'null' || dob == undefined || !dob) {
+		errorMessage = "Please enter date of birth" ; 
+	}
+	console.log('errorMessage');
+	return errorMessage;
+}
+
+/* 
+
+   New Jeevan Ananad is not working if i give above the date 8.14.1997
+*/
 
 
 
