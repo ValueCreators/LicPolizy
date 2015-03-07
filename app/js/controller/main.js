@@ -136,35 +136,49 @@ function loadPolicyMenuDOM() {
 	}
 }
 
-function getMaturityData() {
+function getMaturityData(sendMail) {
 
 	var plan = parseInt( $('#select-plan').val() );
 	var term = parseInt( $('#terms-list').val() );
 	var sumAssured =  parseInt($('#lifecover').val());
 	var dob = $('#date_val').val();
+	var name = $('#name').val();
+	var mailID = $('#mailId').val();
+	$('.error-msg').addClass('none');
 	var doubleAccBenifit = "Y";
 	if (disabledDAB) {
 		doubleAccBenifit = "N";
 	} else {
 		doubleAccBenifit = $('.inc-dab')[0].checked ? "Y" : "N";
 	}
-	var errorMessage = validateForm();
+	var errorMessage = validateForm(sendMail);
 	if (!errorMessage) {
 		$('.error-msg').addClass('none');
-		var getPremiumDataURL = "http://webservice.licpolizy.com/PolicyService.aspx?Premium=<NewDataSet><MainDetl>"+
+
+		var requestURL = null;
+
+		if (!sendMail) {
+			requestURL = "http://webservice.licpolizy.com/PolicyService.aspx?Premium=<NewDataSet><MainDetl>"+
 								"<DDLPlan>"+plan+"</DDLPlan><DDLTerm>"+term+"</DDLTerm><TxtSumAssured>"+sumAssured+"</TxtSumAssured>"+
 								"<DOB>"+dob+"</DOB><DAB>"+doubleAccBenifit+"</DAB></MainDetl></NewDataSet>";
-		console.log('Request',getPremiumDataURL);
+		} else {
+			requestURL = "http://webservice.licpolizy.com/PolicyService.aspx?SendMailQuotes=<NewDataSet><MainDetl>"+
+								"<DDLPlan>"+plan+"</DDLPlan><DDLTerm>"+term+"</DDLTerm><TxtSumAssured>"+sumAssured+"</TxtSumAssured>"+
+								"<DOB>"+dob+"</DOB><DAB>"+doubleAccBenifit+"</DAB><Name>"+name+"</Name><MailID>"+mailID+"</MailID></MainDetl></NewDataSet></MainDetl></NewDataSet>";
+		}
 		$.ajax({
 
-			url : getPremiumDataURL,
+			url : requestURL,
 			type : 'GET',
 			success : function(response_obj, textStatus, jqXHR) {
-
-				var data = JSON.parse(response_obj)
-				$('.show-maturity-details')[0].innerHTML = "";
-				$('.show-maturity-details').append(data[0].Premium);
-				$('.show-maturity-details').removeClass('none');
+				if (response_obj) {
+					var data = JSON.parse(response_obj)
+					$('.show-maturity-details .md-data')[0].innerHTML = "";
+					$('.show-maturity-details .md-data').append(data[0].Premium);
+					$('.show-maturity-details').removeClass('none');
+				} else {
+					alert('Successfully send !!!');
+				}
 			},
 
 			error : function(json_data, textStatus, jqXHR) {
@@ -173,12 +187,12 @@ function getMaturityData() {
 			}
 		});
 	} else {
-		$('.error-msg').innerHTML = errorMessage;
+		$('.error-msg')[0].innerHTML = errorMessage;
 		$('.error-msg').removeClass('none');
 	}
 }
 
-function validateForm () {
+function validateForm (sendMail) {
 
 	var errorMessage = false;
 	var dob = $('#date_val').val();
@@ -191,8 +205,23 @@ function validateForm () {
 	} else if (dob === 'null' || dob == undefined || !dob) {
 		errorMessage = "Please enter date of birth" ; 
 	}
-	console.log('errorMessage');
+
+	if(sendMail) {
+		var mailId = $('#mailId').val();
+		if ( mailId === 'null' || mailId == undefined || !mailId || !validateEmail(mailId)) {
+			errorMessage = "Please enter valid mailId" ;
+		}
+	}
+
 	return errorMessage;
+}
+
+
+function validateEmail(email) { 
+  // http://stackoverflow.com/a/46181/11236
+  
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
 }
 
 /* 

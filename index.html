@@ -60,7 +60,7 @@
         
         <div data-role="fieldcontain">
           <label for="name">DOB</label>
-          <input type="date" id="date_val" data-role="datebox" data-options='{"mode": "calbox", "useNewStyle":true,"useFocus": true}'>
+          <input type="date" id="date_val" data-role="datebox" data-options='{"mode": "datebox", "useNewStyle":true,"useFocus": true}'>
         </div>
 
         <div class="error-msg none">
@@ -76,7 +76,15 @@
         </div>
 
         <div class="show-maturity-details none">
+          <div class="md-data">
 
+          </div>
+          <div data-role="content">
+            <form id="mailIdForm">
+              <input type="email" id="mailId" placeholder="Enter your mail id"  class="required email"/>
+            </form>
+            <button id="sendMail" class="ui-btn ui-corner-all" onclick="getMaturityData('sendMail');">Send Mail</button>
+          </div>
         </div>
 
         
@@ -137,6 +145,7 @@
       <h1>Footer Text</h1>
     </div>
   </div>
+
 
 
 	<script type="text/javascript">

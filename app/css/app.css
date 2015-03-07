@@ -6,10 +6,21 @@ body, input, select, textarea, button, .ui-btn {
 	display: none;
 }
 
+.error-msg {
+  text-align: center;
+  color: red;
+}
+
 .ui-checkbox input:disabled {
 	height: 22px;
 	width: 22px;
 	clip: auto;
+}
+
+button {
+  background: #6E9736 !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
 }
 
 .content {

@@ -51,6 +51,11 @@ var appData = {
             "d1" : "LIC Single Premium Endowment Plan (Table 817) is a single premium conventional With Profits Endowment Assurance Plan. In this policy, premium needs to be paid as a lumpsum at one time. At the end of the policy term, Sum assured with simple reversionary bonus and final additional bonus will be paid back.",
             "d2" : "Life cover will be provided in this policy equal to the sum assured till the end of the policy term. ",
             "d3" : "Service Tax is applicable on the premium paid for this policy, at the rate of 3.09% of the lumpsum premium paid. "
+        },
+        "LIC New Child Money Back Plan" : {
+            "d1" : "LIC New Child Money Back plan (Table 832) is specially designed to meet the Educational, marriage and other needs of growing children through Survival Benefits starting from the age of 18 till their 25th Age. This plan also has an Optional Premium Waiver benefit raider which when opted, the child need not pay any premium if the parent who had proposed this policy has expired.",
+            "d2" : "This policy can be taken for any children who are below 12 years of age and the policy will get matured by their 25th age. ",
+            "d3" : "Service Tax is applicable on the premium paid for this policy, at the rate of 3.09% for the 1st year premium and 1.545% from 2nd year onwards."
         }
     }
 };
@@ -65,6 +70,7 @@ var policyYear = {
         "New BIMA BACHAT" : [9,12,15],
         "Jeevan Shagun" : [12],
         "Anmol Jeevan - 2" : [10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25],
-        "Amulya Jeevan -2" : [10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35]         
+        "Amulya Jeevan -2" : [10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35],
+        "LIC New Child Money Back Plan" : [13,14,15,16,17,18,19,20,21,22,23,24,25]        
     }
 };
